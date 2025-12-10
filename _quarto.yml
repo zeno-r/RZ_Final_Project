@@ -7,10 +7,10 @@ execute:
 
 book:
   title: "YOUR PROJECT TITLE"
-  author:
-    - AUTHOR1 (UNI1)
-    - AUTHOR2 (UNI2)
-  repo-url: https://github.com/YOUR_GITHUB_ACCOUNT/REPO_NAME
+  author: Roberta Zeno
+    - AUTHOR1 rz2790
+    - AUTHOR2 
+  repo-url: https://github.com/zeno-r/RZ_Final_Project
   date: today
   page-footer:
     right: |
