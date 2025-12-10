@@ -4,20 +4,29 @@
     "href": "index.html",
     "title": "YOUR PROJECT TITLE",
     "section": "",
-    "text": "1 Introduction"
+    "text": "1 Introduction\n1. Introduction: Democratic backsliding is a broad concept that, at its core, refers to the state-led erosion of democratic institutions. As political scientist Nancy Bermeo observes in her 2016 paper “On Democratic Backsliding” “we now face forms of democratic backsliding that are legitimated through the very institutions that democracy promoters have prioritized.” Over the last decade, the phenomenon has gained prominence in the public debate, linked to populism, the far right, and authoritarianism (for example: “Liberal democracy vs. far‑right authoritarianism in Europe” — NYTimes, “What’s wrong with democracy in Europe?” — The Economist).\nWhat drives this erosion? Bermeo identifies two key mechanisms: (i) executive aggrandizement, i.e. the expansion of executive power beyond checks and balances and (ii) strategic electoral manipulation, e.g. restricting voter registration or changing electoral rules to favor incumbents. To these we might add (iii) civil society erosion, e.g. media censorship and restrictions on academic freedom. Several underlying causes have been proposed: (i) economic inequality and discontent; (ii) perceived socio-cultural threats, such as immigration or expanded rights for LGBTQ people and women; and (iii) culture wars and disinformation in an increasingly post-truth media environment.\nThis raises two questions: Is democracy truly in retreat across the globe? And is this driven by a single cause or by multiple interacting factors? I believe these questions are crucial for understanding the political landscape we live in and the choices we face as individuals and societies. This analysis explores possible answers by drawing primarily on the V-Dem dataset, with a particular focus on Europe.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
   },
   {
-    "objectID": "data.html#description",
-    "href": "data.html#description",
+    "objectID": "data.html",
+    "href": "data.html",
     "title": "2  Data",
-    "section": "2.1 Description",
-    "text": "2.1 Description"
+    "section": "",
+    "text": "2.1 Description",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Data</span>"
+    ]
   },
   {
     "objectID": "data.html#missing-value-analysis",
     "href": "data.html#missing-value-analysis",
     "title": "2  Data",
     "section": "2.2 Missing value analysis",
-    "text": "2.2 Missing value analysis"
+    "text": "2.2 Missing value analysis",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Data</span>"
+    ]
   }
 ]
