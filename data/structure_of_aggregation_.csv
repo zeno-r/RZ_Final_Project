@@ -1,0 +1,125 @@
+﻿N,Indicator,Low Level Index,High Level Index ,Freq
+1,Freedom of academic and cultural expression,Freedom of expression and alternative sources of information index,Electoral Democracy Index,1
+2,Freedom of discussion for men,Freedom of expression and alternative sources of information index,Electoral Democracy Index,1
+3,Freedom of discussion for women,Freedom of expression and alternative sources of information index,Electoral Democracy Index,1
+4,Media bias,Freedom of expression and alternative sources of information index,Electoral Democracy Index,1
+5,Government censorship effort - Media,Freedom of expression and alternative sources of information index,Electoral Democracy Index,1
+6,Print/broadcast media critical,Freedom of expression and alternative sources of information index,Electoral Democracy Index,1
+7,Harassment of journalists,Freedom of expression and alternative sources of information index,Electoral Democracy Index,1
+8,Print/broadcast media perspectives,Freedom of expression and alternative sources of information index,Electoral Democracy Index,1
+9,Media self-censorship,Freedom of expression and alternative sources of information index,Electoral Democracy Index,1
+10,CSO entry and exit,Freedom of association index ,Electoral Democracy Index,1
+11,CSO repression,Freedom of association index ,Electoral Democracy Index,1
+12,Elections multiparty,Freedom of association index ,Electoral Democracy Index,1
+13,Barriers to parties,Freedom of association index ,Electoral Democracy Index,1
+14,Opposition parties autonomy,Freedom of association index ,Electoral Democracy Index,1
+15,Party ban,Freedom of association index ,Electoral Democracy Index,1
+16,Percent of population with suffrage,Share of population with suffrage,Electoral Democracy Index,1
+17,EMB autonomy,Clean elections index,Electoral Democracy Index,1
+18,EMB capacity,Clean elections index,Electoral Democracy Index,1
+19,Election free and fair,Clean elections index,Electoral Democracy Index,1
+20,Election government intimidation,Clean elections index,Electoral Democracy Index,1
+21,Election other voting irregularities,Clean elections index,Electoral Democracy Index,1
+22,Election other electoral violence,Clean elections index,Electoral Democracy Index,1
+23,Election voter registry,Clean elections index,Electoral Democracy Index,1
+24,Election vote buying,Clean elections index,Electoral Democracy Index,1
+25,HOG selection by legislature in practice,Elected officials index,Electoral Democracy Index,1
+26,HOS selection by legislature in practice,Elected officials index,Electoral Democracy Index,1
+27,Chief executive appointment by upper chamber,Elected officials index,Electoral Democracy Index,1
+28,Chief executive appointment by upper chamber implicit approval,Elected officials index,Electoral Democracy Index,1
+29,HOS appoints cabinet in practice,Elected officials index,Electoral Democracy Index,1
+30,HOS dismisses ministers in practice,Elected officials index,Electoral Democracy Index,1
+31,HOG dismisses ministers in practice,Elected officials index,Electoral Democracy Index,1
+32,HOG appoints cabinet in practice,Elected officials index,Electoral Democracy Index,1
+33,HOS = HOG?,Elected officials index,Electoral Democracy Index,1
+34,HOS appointment in practice,Elected officials index,Electoral Democracy Index,1
+35,HOG appointment in practice,Elected officials index,Electoral Democracy Index,1
+36,Relative power of the HOS,Elected officials index,Electoral Democracy Index,1
+37,Legislature bicameral,Elected officials index,Electoral Democracy Index,1
+38,Upper chamber elected,Elected officials index,Electoral Democracy Index,1
+39,Lower chamber elected,Elected officials index,Electoral Democracy Index,1
+40,Percentage of indirectly elected legislators lower chamber,Elected officials index,Electoral Democracy Index,1
+41,Percentage of indirectly elected legislators upper chamber,Elected officials index,Electoral Democracy Index,1
+42,Access to justice for men,Equality before the law and individual liberty index,Liberal Democracy Index,1
+43,Access to justice for women,Equality before the law and individual liberty index,Liberal Democracy Index,1
+44,Freedom of foreign movement,Equality before the law and individual liberty index,Liberal Democracy Index,1
+45,Freedom from political killings,Equality before the law and individual liberty index,Liberal Democracy Index,1
+46,Property rights for men,Equality before the law and individual liberty index,Liberal Democracy Index,1
+47,Property rights for women,Equality before the law and individual liberty index,Liberal Democracy Index,1
+48,Freedom of religion,Equality before the law and individual liberty index,Liberal Democracy Index,1
+49,Freedom from forced labor for men,Equality before the law and individual liberty index,Liberal Democracy Index,1
+50,Freedom from forced labor for women,Equality before the law and individual liberty index,Liberal Democracy Index,1
+51,Freedom of domestic movement for men,Equality before the law and individual liberty index,Liberal Democracy Index,1
+52,Freedom of domestic movement for women,Equality before the law and individual liberty index,Liberal Democracy Index,1
+53,Rigorous and impartial public administration,Equality before the law and individual liberty index,Liberal Democracy Index,1
+54,Freedom from torture,Equality before the law and individual liberty index,Liberal Democracy Index,1
+55,Transparent laws with predictable enforcement,Equality before the law and individual liberty index,Liberal Democracy Index,1
+56,Executive respects constitution,Judicial constraints on the executive index,Liberal Democracy Index,1
+57,Compliance with judiciary,Judicial constraints on the executive index,Liberal Democracy Index,1
+58,Compliance with high court,Judicial constraints on the executive index,Liberal Democracy Index,1
+59,High court independence,Judicial constraints on the executive index,Liberal Democracy Index,1
+60,Lower court independence,Judicial constraints on the executive index,Liberal Democracy Index,1
+61,Legislature investigates in practice,Legislative constraints on the executive index,Liberal Democracy Index,1
+62,Legislature opposition parties,Legislative constraints on the executive index,Liberal Democracy Index,1
+63,Executive oversight,Legislative constraints on the executive index,Liberal Democracy Index,1
+64,Legislature questions officials in practice,Legislative constraints on the executive index,Liberal Democracy Index,1
+65,CSO consultation,Civil society participation index,Participatory Democracy Index,1
+66,CSO womens participation,Civil society participation index,Participatory Democracy Index,1
+67,CSO participatory environment,Civil society participation index,Participatory Democracy Index,1
+68,Candidate selection National/local,Civil society participation index,Participatory Democracy Index,1
+69,Initiatives administrative threshold,Direct popular vote index,Participatory Democracy Index,1
+70,Referendums administrative threshold,Direct popular vote index,Participatory Democracy Index,1
+71,Initiatives approval threshold,Direct popular vote index,Participatory Democracy Index,1
+72,Referendums approval threshold,Direct popular vote index,Participatory Democracy Index,1
+73,Initiatives permitted,Direct popular vote index,Participatory Democracy Index,1
+74,Referendums permitted,Direct popular vote index,Participatory Democracy Index,1
+75,Initiatives signature-gathering period,Direct popular vote index,Participatory Democracy Index,1
+76,Referendums signature-gathering period,Direct popular vote index,Participatory Democracy Index,1
+77,Initiatives signature-gathering time limit,Direct popular vote index,Participatory Democracy Index,1
+78,Initiatives signatures %,Direct popular vote index,Participatory Democracy Index,1
+79,Referendums signatures %,Direct popular vote index,Participatory Democracy Index,1
+80,Initiatives participation threshold,Direct popular vote index,Participatory Democracy Index,1
+81,Referendums participation threshold,Direct popular vote index,Participatory Democracy Index,1
+82,Initiatives super majority,Direct popular vote index,Participatory Democracy Index,1
+83,Referendums super majority,Direct popular vote index,Participatory Democracy Index,1
+84,Popular initiative credible threat,Direct popular vote index,Participatory Democracy Index,1
+85,Occurrence of citizen-initiative this year,Direct popular vote index,Participatory Democracy Index,1
+86,Obligatory referendum administrative threshold,Direct popular vote index,Participatory Democracy Index,1
+87,Plebiscite administrative threshold,Direct popular vote index,Participatory Democracy Index,1
+88,Obligatory referendum approval threshold,Direct popular vote index,Participatory Democracy Index,1
+89,Plebiscite approval threshold,Direct popular vote index,Participatory Democracy Index,1
+90,Constitutional changes popular vote,Direct popular vote index,Participatory Democracy Index,1
+91,Plebiscite permitted,Direct popular vote index,Participatory Democracy Index,1
+92,Obligatory referendum participation threshold,Direct popular vote index,Participatory Democracy Index,1
+93,Plebiscite participation threshold,Direct popular vote index,Participatory Democracy Index,1
+94,Obligatory referendum super majority,Direct popular vote index,Participatory Democracy Index,1
+95,Plebiscite super majority,Direct popular vote index,Participatory Democracy Index,1
+96,Obligatory referendum credible threat,Direct popular vote index,Participatory Democracy Index,1
+97,Plebiscite credible threat,Direct popular vote index,Participatory Democracy Index,1
+98,Popular referendum credible threat,Direct popular vote index,Participatory Democracy Index,1
+99,Occurrence of obligatory referendum this year,Direct popular vote index,Participatory Democracy Index,1
+100,Occurrence of plebiscite this year,Direct popular vote index,Participatory Democracy Index,1
+101,Occurrence of referendum this year,Direct popular vote index,Participatory Democracy Index,1
+102,Local government elected,Local government index,Participatory Democracy Index,1
+103,Local government exists,Local government index,Participatory Democracy Index,1
+104,Local offices relative power,Local government index,Participatory Democracy Index,1
+105,Regional government exists,Regional government index,Participatory Democracy Index,1
+106,Regional offices relative power,Regional government index,Participatory Democracy Index,1
+107,Regional government elected,Regional government index,Participatory Democracy Index,1
+108,Common good,Deliberative Democracy Sub Index,Deliberative Democracy Index,1
+109,Range of consultation,Deliberative Democracy Sub Index,Deliberative Democracy Index,1
+110,Respect counterarguments,Deliberative Democracy Sub Index,Deliberative Democracy Index,1
+111,Engaged society,Deliberative Democracy Sub Index,Deliberative Democracy Index,1
+112,Reasoned justification,Deliberative Democracy Sub Index,Deliberative Democracy Index,1
+113,Power distributed by gender,Equal access index,Egalitarian Democracy Index,1
+114,Power distributed by socioeconomic position,Equal access index,Egalitarian Democracy Index,1
+115,Power distributed by social group,Equal access index,Egalitarian Democracy Index,1
+116,Equal distribution of resources index,Equal distribution of resources index,Egalitarian Democracy Index,1
+117,Particularistic or Public good,Equal distribution of resources index,Egalitarian Democracy Index,1
+118,Means-tested vs. universalistic policy,Equal distribution of resources index,Egalitarian Democracy Index,1
+119,Educational equality,Equal distribution of resources index,Egalitarian Democracy Index,1
+120,Health equality,Equal distribution of resources index,Egalitarian Democracy Index,1
+121,Equal protection index,Equal protection index,Egalitarian Democracy Index,1
+122,Social class equality in respect for civil liberties,Equal protection index,Egalitarian Democracy Index,1
+123,Weaker civil liberties population,Equal protection index,Egalitarian Democracy Index,1
+124,Social group equality in respect for civil liberties,Equal protection index,Egalitarian Democracy Index,1

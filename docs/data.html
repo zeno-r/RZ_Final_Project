@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Data – YOUR PROJECT TITLE</title>
+<title>2&nbsp; Data – Democratic backsiliding in Europe: insights from the V-Dem dataset</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -70,6 +105,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="site_libs/d3-4.10.2/d3.min.js"></script>
+<link href="site_libs/collapsibleTree-0.1.6/collapsibleTree.css" rel="stylesheet">
+<script src="site_libs/collapsibleTree-binding-0.1.8/collapsibleTree.js"></script>
 
 
 </head>
@@ -100,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
       <a href="./index.html" class="sidebar-logo-link">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">YOUR PROJECT TITLE</a> 
+      <a href="./">Democratic backsiliding in Europe: insights from the V-Dem dataset</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/zeno-r/RZ_Final_Project" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -180,11 +219,150 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>The V-Dem dataset is one of the largest social science data collection projects on democracy, based at the University of Gothenburg. V-Dem provides 600+ indicators across all countries from 1789 to the present, measuring five high-level principles of democracy: electoral, liberal, participatory, deliberative, and egalitarian. Each principle is represented by an index and it is further broken down into components, each measured separately. Components (i.e.&nbsp;sub-indexes) include features such as free and fair elections, civil liberties, judicial independence and so on. Finally, each component is disaggregated into specific indicators (i.e.&nbsp;individual measurements or variables) (https://www.v-dem.net/about/v-dem-project/).</p>
 <section id="description" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="description"><span class="header-section-number">2.1</span> Description</h2>
+<p>The dataset contains five key variable types based on their coding method:</p>
+<p><strong>Variable Types in the V-Dem Dataset</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 40%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Type</strong></th>
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"><strong>Examples</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>A / A</strong>*</td>
+<td style="text-align: left;">Factual data coded by project managers or research assistants from existing sources.</td>
+<td style="text-align: left;">% of population with suffrage</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C</strong></td>
+<td style="text-align: left;">Expert-coded variables, assessed by typically 5 or more country specialists (scholars or residents with deep country knowledge; identities kept confidential).</td>
+<td style="text-align: left;">Harassment of journalists <em>(Are individual journalists harassed — i.e., threatened with libel, arrested, imprisoned, beaten, or killed — by governmental or powerful nongovernmental actors? Responses in a scale from 0 to 4)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>D</strong></td>
+<td style="text-align: left;">Indices or components aggregated from Type A or C variables.</td>
+<td style="text-align: left;">Electoral democracy index, political corruption index</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>E</strong></td>
+<td style="text-align: left;">Variables imported from external sources.</td>
+<td style="text-align: left;">—</td>
+</tr>
+</tbody>
+</table>
+<p>The variables take the form of nominal (classifications, text, dates), numerical, ordinal (e.g., Likert-style scales), or interval scales (indexes) <a href="https://www.v-dem.net/documents/56/methodology.pdf%20p.7-11">(Methodology)</a>.</p>
+<p>Further metadata information: (i) the codebook explains each variable meaning, collection and coding, frequency and scale. Survey questions and answer options are detailed fully alongside the aggregation methodology across country expert <a href="https://v-dem.net/documents/55/codebook.pdf">(Codebook)</a>; (ii) the structure of aggregation document, i.e.&nbsp;the taxonomy of indexes, sub-indexes and indicators with codes <a href="https://www.v-dem.net/documents/57/structureofaggregation.pdf">(Structure of aggregation)</a>.</p>
+<p>In the context of this work, I will concentrate on both indicators and indexes, to refer to higher level concepts, such as democracy rankings.<br>
+This analysis also makes use of macro-economic data from Eurostat, in particular the Gini coefficient for equivalised disposable income and real GDP per capita. Eurostat series presented some missing patterns, which I will adress in the following section.</p>
+<p><strong>Structure of the dataset</strong></p>
+<p>The V-Dem top five indices measure five high-level principles of democracy: electoral, liberal, participatory, deliberative, and egalitarian. Each index is an aggregation of sub-index components and each sub-index is an aggregation of variables. Most variables derive from an aggregation of expert judgments for features of democracy that are not directly observable (C type of variables, please refer to table above) .</p>
+<p>The most central index in the dataset is the <strong>Electoral Democracy index</strong>; it measures to what extent “elections are free, fair, and reoccurring; elected officials wield political power de facto; suffrage is universal; political parties and candidates can form freely and compete; and the environment around elections make for a reasonably level playing field with speech, media, and civil society freedom.” <a href="https://www.v-dem.net/documents/54/v-dem_dr_2025_lowres_v1.pdf%20p.9">(25 Years of Autocratization – Democracy Trumped?)</a></p>
+<p>As highlighted in the methodology document: “we consider this measure fundamental to all other measures of democracy: we would not call a regime without elections “democratic” in any sense”.<a href="https://www.v-dem.net/documents/56/methodology.pdf%20p.4">(Methodology)</a></p>
+<p>Hence, in the remainder of this analysis the Electoral Democracy Index will be used as a proxy for democratic health and democratic backsliding, whilst the other indices will be used sparsely with the purpose of adding further dimensions and color to this central one.</p>
+<p><strong>V-Dem Dataset Structure: Indices, Sub-indices and Indicators</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("collapsibleTree")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(collapsibleTree)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>structure_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/structure_of_aggregation_.csv"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">collapsibleTree</span>(</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  structure_data,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">hierarchy =</span> <span class="fu">c</span>(<span class="st">"High Level Index"</span>, <span class="st">"Low Level Index"</span>, <span class="st">"Indicator"</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">1800</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">900</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">fontSize =</span> <span class="dv">10</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">linkLength =</span> <span class="dv">200</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">zoomable =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">collapsed =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">root =</span> <span class="st">"V-Dem"</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">nodeSize =</span> <span class="st">"leafCount"</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="htmlwidget-81ffa419b313b9bf3a9e" style="width:100%;height:325px;" class="collapsibleTree html-widget"></div>
+<script type="application/json" data-for="htmlwidget-81ffa419b313b9bf3a9e">{"x":{"data":{"name":"V-Dem","SizeOfNode":23.07,"children":[{"name":"Electoral Democracy Index","SizeOfNode":13.26,"children":[{"name":"Freedom of expression and alternative sources of information index","SizeOfNode":6.21,"children":[{"name":"Freedom of academic and cultural expression","SizeOfNode":2.07},{"name":"Freedom of discussion for men","SizeOfNode":2.07},{"name":"Freedom of discussion for women","SizeOfNode":2.07},{"name":"Media bias","SizeOfNode":2.07},{"name":"Government censorship effort - Media","SizeOfNode":2.07},{"name":"Print/broadcast media critical","SizeOfNode":2.07},{"name":"Harassment of journalists","SizeOfNode":2.07},{"name":"Print/broadcast media perspectives","SizeOfNode":2.07},{"name":"Media self-censorship","SizeOfNode":2.07}]},{"name":"Freedom of association index","SizeOfNode":5.07,"children":[{"name":"CSO entry and exit","SizeOfNode":2.07},{"name":"CSO repression","SizeOfNode":2.07},{"name":"Elections multiparty","SizeOfNode":2.07},{"name":"Barriers to parties","SizeOfNode":2.07},{"name":"Opposition parties autonomy","SizeOfNode":2.07},{"name":"Party ban","SizeOfNode":2.07}]},{"name":"Share of population with suffrage","SizeOfNode":2.07,"children":[{"name":"Percent of population with suffrage","SizeOfNode":2.07}]},{"name":"Clean elections index","SizeOfNode":5.86,"children":[{"name":"EMB autonomy","SizeOfNode":2.07},{"name":"EMB capacity","SizeOfNode":2.07},{"name":"Election free and fair","SizeOfNode":2.07},{"name":"Election government intimidation","SizeOfNode":2.07},{"name":"Election other voting irregularities","SizeOfNode":2.07},{"name":"Election other electoral violence","SizeOfNode":2.07},{"name":"Election voter registry","SizeOfNode":2.07},{"name":"Election vote buying","SizeOfNode":2.07}]},{"name":"Elected officials index","SizeOfNode":8.539999999999999,"children":[{"name":"HOG selection by legislature in practice","SizeOfNode":2.07},{"name":"HOS selection by legislature in practice","SizeOfNode":2.07},{"name":"Chief executive appointment by upper chamber","SizeOfNode":2.07},{"name":"Chief executive appointment by upper chamber implicit approval","SizeOfNode":2.07},{"name":"HOS appoints cabinet in practice","SizeOfNode":2.07},{"name":"HOS dismisses ministers in practice","SizeOfNode":2.07},{"name":"HOG dismisses ministers in practice","SizeOfNode":2.07},{"name":"HOG appoints cabinet in practice","SizeOfNode":2.07},{"name":"HOS = HOG?","SizeOfNode":2.07},{"name":"HOS appointment in practice","SizeOfNode":2.07},{"name":"HOG appointment in practice","SizeOfNode":2.07},{"name":"Relative power of the HOS","SizeOfNode":2.07},{"name":"Legislature bicameral","SizeOfNode":2.07},{"name":"Upper chamber elected","SizeOfNode":2.07},{"name":"Lower chamber elected","SizeOfNode":2.07},{"name":"Percentage of indirectly elected legislators lower chamber","SizeOfNode":2.07},{"name":"Percentage of indirectly elected legislators upper chamber","SizeOfNode":2.07}]}]},{"name":"Liberal Democracy Index","SizeOfNode":9.93,"children":[{"name":"Equality before the law and individual liberty index","SizeOfNode":7.75,"children":[{"name":"Access to justice for men","SizeOfNode":2.07},{"name":"Access to justice for women","SizeOfNode":2.07},{"name":"Freedom of foreign movement","SizeOfNode":2.07},{"name":"Freedom from political killings","SizeOfNode":2.07},{"name":"Property rights for men","SizeOfNode":2.07},{"name":"Property rights for women","SizeOfNode":2.07},{"name":"Freedom of religion","SizeOfNode":2.07},{"name":"Freedom from forced labor for men","SizeOfNode":2.07},{"name":"Freedom from forced labor for women","SizeOfNode":2.07},{"name":"Freedom of domestic movement for men","SizeOfNode":2.07},{"name":"Freedom of domestic movement for women","SizeOfNode":2.07},{"name":"Rigorous and impartial public administration","SizeOfNode":2.07},{"name":"Freedom from torture","SizeOfNode":2.07},{"name":"Transparent laws with predictable enforcement","SizeOfNode":2.07}]},{"name":"Judicial constraints on the executive index","SizeOfNode":4.63,"children":[{"name":"Executive respects constitution","SizeOfNode":2.07},{"name":"Compliance with judiciary","SizeOfNode":2.07},{"name":"Compliance with high court","SizeOfNode":2.07},{"name":"High court independence","SizeOfNode":2.07},{"name":"Lower court independence","SizeOfNode":2.07}]},{"name":"Legislative constraints on the executive index","SizeOfNode":4.14,"children":[{"name":"Legislature investigates in practice","SizeOfNode":2.07},{"name":"Legislature opposition parties","SizeOfNode":2.07},{"name":"Executive oversight","SizeOfNode":2.07},{"name":"Legislature questions officials in practice","SizeOfNode":2.07}]}]},{"name":"Participatory Democracy Index","SizeOfNode":13.58,"children":[{"name":"Civil society participation index","SizeOfNode":4.14,"children":[{"name":"CSO consultation","SizeOfNode":2.07},{"name":"CSO womens participation","SizeOfNode":2.07},{"name":"CSO participatory environment","SizeOfNode":2.07},{"name":"Candidate selection National/local","SizeOfNode":2.07}]},{"name":"Direct popular vote index","SizeOfNode":11.9,"children":[{"name":"Initiatives administrative threshold","SizeOfNode":2.07},{"name":"Referendums administrative threshold","SizeOfNode":2.07},{"name":"Initiatives approval threshold","SizeOfNode":2.07},{"name":"Referendums approval threshold","SizeOfNode":2.07},{"name":"Initiatives permitted","SizeOfNode":2.07},{"name":"Referendums permitted","SizeOfNode":2.07},{"name":"Initiatives signature-gathering period","SizeOfNode":2.07},{"name":"Referendums signature-gathering period","SizeOfNode":2.07},{"name":"Initiatives signature-gathering time limit","SizeOfNode":2.07},{"name":"Initiatives signatures %","SizeOfNode":2.07},{"name":"Referendums signatures %","SizeOfNode":2.07},{"name":"Initiatives participation threshold","SizeOfNode":2.07},{"name":"Referendums participation threshold","SizeOfNode":2.07},{"name":"Initiatives super majority","SizeOfNode":2.07},{"name":"Referendums super majority","SizeOfNode":2.07},{"name":"Popular initiative credible threat","SizeOfNode":2.07},{"name":"Occurrence of citizen-initiative this year","SizeOfNode":2.07},{"name":"Obligatory referendum administrative threshold","SizeOfNode":2.07},{"name":"Plebiscite administrative threshold","SizeOfNode":2.07},{"name":"Obligatory referendum approval threshold","SizeOfNode":2.07},{"name":"Plebiscite approval threshold","SizeOfNode":2.07},{"name":"Constitutional changes popular vote","SizeOfNode":2.07},{"name":"Plebiscite permitted","SizeOfNode":2.07},{"name":"Obligatory referendum participation threshold","SizeOfNode":2.07},{"name":"Plebiscite participation threshold","SizeOfNode":2.07},{"name":"Obligatory referendum super majority","SizeOfNode":2.07},{"name":"Plebiscite super majority","SizeOfNode":2.07},{"name":"Obligatory referendum credible threat","SizeOfNode":2.07},{"name":"Plebiscite credible threat","SizeOfNode":2.07},{"name":"Popular referendum credible threat","SizeOfNode":2.07},{"name":"Occurrence of obligatory referendum this year","SizeOfNode":2.07},{"name":"Occurrence of plebiscite this year","SizeOfNode":2.07},{"name":"Occurrence of referendum this year","SizeOfNode":2.07}]},{"name":"Local government index","SizeOfNode":3.59,"children":[{"name":"Local government elected","SizeOfNode":2.07},{"name":"Local government exists","SizeOfNode":2.07},{"name":"Local offices relative power","SizeOfNode":2.07}]},{"name":"Regional government index","SizeOfNode":3.59,"children":[{"name":"Regional government exists","SizeOfNode":2.07},{"name":"Regional offices relative power","SizeOfNode":2.07},{"name":"Regional government elected","SizeOfNode":2.07}]}]},{"name":"Deliberative Democracy Index","SizeOfNode":4.63,"children":[{"name":"Deliberative Democracy Sub Index","SizeOfNode":4.63,"children":[{"name":"Common good","SizeOfNode":2.07},{"name":"Range of consultation","SizeOfNode":2.07},{"name":"Respect counterarguments","SizeOfNode":2.07},{"name":"Engaged society","SizeOfNode":2.07},{"name":"Reasoned justification","SizeOfNode":2.07}]}]},{"name":"Egalitarian Democracy Index","SizeOfNode":7.18,"children":[{"name":"Equal access index","SizeOfNode":3.59,"children":[{"name":"Power distributed by gender","SizeOfNode":2.07},{"name":"Power distributed by socioeconomic position","SizeOfNode":2.07},{"name":"Power distributed by social group","SizeOfNode":2.07}]},{"name":"Equal distribution of resources index","SizeOfNode":4.63,"children":[{"name":"Equal distribution of resources index","SizeOfNode":2.07},{"name":"Particularistic or Public good","SizeOfNode":2.07},{"name":"Means-tested vs. universalistic policy","SizeOfNode":2.07},{"name":"Educational equality","SizeOfNode":2.07},{"name":"Health equality","SizeOfNode":2.07}]},{"name":"Equal protection index","SizeOfNode":4.14,"children":[{"name":"Equal protection index","SizeOfNode":2.07},{"name":"Social class equality in respect for civil liberties","SizeOfNode":2.07},{"name":"Weaker civil liberties population","SizeOfNode":2.07},{"name":"Social group equality in respect for civil liberties","SizeOfNode":2.07}]}]}]},"options":{"hierarchy":["High Level Index","Low Level Index","Indicator"],"input":null,"attribute":"leafCount","linkLength":200,"fontSize":10,"tooltip":false,"collapsed":true,"zoomable":true,"margin":{"top":20,"bottom":20,"left":63.06999999999999,"right":335},"fill":"lightsteelblue"}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Source: <a href="https://v-dem.net/documents/57/structureofaggregation.pdf">(V-Dem Structure of Aggregation)</a></p>
 </section>
 <section id="missing-value-analysis" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">2.2</span> Missing value analysis</h2>
+<p>Eurostat exhibits missing data patterns for the Gini coefficient series, as shown in the analysis below. This led me to drop the UK and adjust my time interval to 2010–2024 (instead of 2004–2024) for the part of this analysis that relates to income inequality.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(eurostat)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>country_list <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Austria"</span>,<span class="st">"Belgium"</span>,<span class="st">"Bulgaria"</span>,<span class="st">"Croatia"</span>,<span class="st">"Cyprus"</span>,<span class="st">"Czechia"</span>,<span class="st">"Denmark"</span>,<span class="st">"Estonia"</span>,<span class="st">"Finland"</span>, <span class="st">"France"</span>,<span class="st">"Germany"</span>,<span class="st">"Greece"</span>,<span class="st">"Hungary"</span>,<span class="st">"Italy"</span>, <span class="st">"Ireland"</span>, <span class="st">"Latvia"</span>, <span class="st">"Lithuania"</span>,<span class="st">"Luxembourg"</span>,<span class="st">"Malta"</span>,<span class="st">"Netherlands"</span>, <span class="st">"Poland"</span>, <span class="st">"Portugal"</span>, <span class="st">"Romania"</span>,<span class="st">"Slovenia"</span>, <span class="st">"Slovakia"</span>,<span class="st">"Spain"</span>,<span class="st">"Sweden"</span>,<span class="st">"Switzerland"</span>, <span class="st">"United Kingdom"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>geo_codes_e <span class="ot">&lt;-</span> <span class="fu">get_eurostat_dic</span>(<span class="st">"geo"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Filter eurostat dictionary and get country codes</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>country_codes <span class="ot">&lt;-</span> geo_codes_e <span class="sc">|&gt;</span> </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(full_name <span class="sc">%in%</span> country_list) <span class="sc">|&gt;</span> </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">nchar</span>(code_name) <span class="sc">==</span> <span class="dv">2</span>)<span class="sc">|&gt;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(code_name)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#Create Gini data df</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>gini_missing <span class="ot">&lt;-</span> <span class="fu">get_eurostat</span>(<span class="st">"ilc_di12c"</span>, </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                                <span class="at">time_format =</span> <span class="st">"num"</span>, </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                                <span class="at">filters =</span> <span class="fu">list</span>(<span class="at">geo =</span> country_codes,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                                <span class="at">time =</span> <span class="dv">2004</span><span class="sc">:</span><span class="dv">2025</span>),</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                                <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(geo, time) <span class="sc">|&gt;</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(geo) <span class="sc">|&gt;</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="co">#fill(values, .direction = "down") |&gt; </span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">#Add country names to Gini data</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>gini_missing_names <span class="ot">&lt;-</span> gini_missing <span class="sc">|&gt;</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(geo_codes_e, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"geo"</span> <span class="ot">=</span> <span class="st">"code_name"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">country_name =</span> full_name)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>gini_missing_names <span class="ot">&lt;-</span> gini_missing_names <span class="sc">|&gt;</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">missing =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(values), <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gini_missing_names, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(country_name, <span class="sc">-</span>missing, sum),</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>                        <span class="at">y =</span> <span class="fu">factor</span>(time), </span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>                       <span class="at">fill =</span> values)) <span class="sc">+</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">na.value =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>, </span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="cn">NULL</span>, </span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Gini"</span>,</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gini Coefficient Data Availability (2004–2024)"</span>,</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Black = missing data"</span>,</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: Eurostat"</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="data_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>

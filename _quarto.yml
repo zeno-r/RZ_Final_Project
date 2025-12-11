@@ -4,12 +4,13 @@ project:
 
 execute:
   echo: true
+  warning: false
+  message: false
 
 book:
-  title: "YOUR PROJECT TITLE"
+  title: "Democratic backsiliding in Europe: insights from the V-Dem dataset"
   author: Roberta Zeno
     - AUTHOR1 rz2790
-    - AUTHOR2 
   repo-url: https://github.com/zeno-r/RZ_Final_Project
   date: today
   page-footer:
@@ -27,5 +28,4 @@ format:
   html:
     theme: cosmo
     code-fold: true
-
 
