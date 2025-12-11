@@ -11,10 +11,8 @@ This project explores democratic backsliding across the EU27 + UK & Switzerland,
 - Executive aggrandizement varies across country
 
 ### Data Sources
-| Source | Description |
-|--------|-------------|
-| [V-Dem Dataset](https://www.v-dem.net) 
-| [Eurostat](https://ec.europa.eu/eurostat) 
+[V-Dem Dataset](https://www.v-dem.net) 
+[Eurostat](https://ec.europa.eu/eurostat) 
 
 ### Author
 rz2790
