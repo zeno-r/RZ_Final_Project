@@ -15,5 +15,4 @@ This project explores democratic backsliding across the EU27 + UK & Switzerland,
 [Eurostat](https://ec.europa.eu/eurostat) 
 
 ### Author
-Roberta Zeno
 rz2790
