@@ -10,7 +10,7 @@ execute:
 book:
   title: "Democratic backsiliding in Europe: insights from the V-Dem dataset"
   author: Roberta Zeno
-    - AUTHOR1 rz2790
+    - rz2790
   repo-url: https://github.com/zeno-r/RZ_Final_Project
   date: today
   page-footer:
@@ -28,4 +28,9 @@ format:
   html:
     theme: cosmo
     code-fold: true
+    include-in-header:
+      text: |
+        <style>
+        p { text-align: justify; }
+        </style>
 
